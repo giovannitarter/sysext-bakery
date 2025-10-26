@@ -1,0 +1,13 @@
+[Unit]
+Description=Install flux to running k8s cluster
+Documentation=https://fluxcd.io/flux/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Environment=KUBECONFIG='/home/core/.kube/config'
+ExecStart=/usr/local/bin/flux
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
